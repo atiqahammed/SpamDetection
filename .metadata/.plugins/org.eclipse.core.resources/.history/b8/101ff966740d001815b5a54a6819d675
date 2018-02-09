@@ -1,0 +1,17 @@
+package main;
+
+import java.io.IOException;
+
+import detector.Detector;
+
+public class Test {
+	public static void main(String[] args) throws IOException {
+		//System.out.println("Hello world");
+		Detector detector = new Detector();
+		//detector.train("SMSSpamCollection");
+		
+		detector.inputTrainData();
+		
+		
+	}
+}

@@ -1,0 +1,41 @@
+package detector;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.text.FieldPosition;
+
+public class Detector {
+
+	public void train(String filePath) {
+		File dataFile = new File(filePath);
+		
+		FileReader fr = null;
+		BufferedReader br = null;
+
+			try {
+				br = new BufferedReader(new FileReader(dataFile));
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			//fr = new FileReader(FILENAME);
+			//br = new BufferedReader(fr);
+
+			String sCurrentLine = null;
+
+		try {
+			sCurrentLine = br.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}//) != null) {
+				System.out.println(sCurrentLine);
+		
+		
+		
+	}
+
+}

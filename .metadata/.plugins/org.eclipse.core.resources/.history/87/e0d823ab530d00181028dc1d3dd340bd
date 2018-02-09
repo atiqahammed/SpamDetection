@@ -1,0 +1,10 @@
+package detector;
+
+public class Detector {
+
+	public void train(String filePath) {
+		
+		
+	}
+
+}

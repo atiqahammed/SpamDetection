@@ -1,0 +1,22 @@
+package main;
+
+import java.io.IOException;
+
+import detector.Detector;
+
+public class Test {
+	public static void main(String[] args) throws IOException {
+		//System.out.println("Hello world");
+		Detector detector = new Detector();
+		//detector.train("SMSSpamCollection");
+		
+		detector.inputTrainData();
+		
+		detector.test("You'll not rcv any more msgs from the chat svc. For FREE Hardcore services text GO to: 69988 If u get nothing u must Age Verify with yr network & try again");
+		detector.test("GENT! We are trying to contact you. Last weekends draw shows that you won a £1000 prize GUARANTEED. Call 09064012160. Claim Code K52. Valid 12hrs only. 150ppm");
+		detector.test("As I entered my cabin my PA said, '' Happy B'day Boss !!''. I felt special. She askd me 4 lunch. After lunch she invited me to her apartment. We went there");
+		
+	
+	
+	}
+}

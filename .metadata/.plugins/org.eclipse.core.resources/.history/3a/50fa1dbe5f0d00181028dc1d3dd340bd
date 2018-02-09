@@ -1,0 +1,83 @@
+package detector;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.text.FieldPosition;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class Detector {
+
+	public void train(String filePath) {
+		File dataFile = new File(filePath);
+		
+		HashMap<String, Integer> spamCount = new HashMap<>();
+		HashMap<String, Integer> hamCount = new HashMap<>();
+		ArrayList<String> allWords = new ArrayList<>();
+
+		FileReader fr = null;
+		BufferedReader br = null;
+
+		try {
+			br = new BufferedReader(new FileReader(dataFile));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		String sCurrentLine = null;
+		try {
+			int count =0;
+			while((sCurrentLine = br.readLine()) != null)
+			{
+				count++;
+				
+				sCurrentLine = sCurrentLine.toLowerCase();
+				String newString = sCurrentLine.replaceAll("[^a-zA-Z0-9\\s\\s]", "");
+				//System.out.println(newString);
+				//Scanner scanner = new Scanner(newString);
+				String[] array = newString.split(" ");
+				//System.out.println(array.length);
+				String[] classes = array[0].split("\t");
+				//System.out.println(classes[0]);
+				try{
+				array[0] = classes[1];
+				}catch(Exception e){
+					continue;
+					//System.out.println(count+" "+classes);
+				}
+				for(int x = 0; x < array.length; x++){
+					//System.out.println(count +" "+array[x]);
+					
+					if(classes[0].equals("ham")){
+						if(hamCount.get(array[x]) == null) hamCount.put(array[x], 1);
+						else hamCount.put(array[x], hamCount.get(array[x]) + 1);
+					}
+					else {
+						if(spamCount.get(array[x]) == null) spamCount.put(array[x], 1);
+						else spamCount.put(array[x], spamCount.get(array[x]) + 1);
+					}
+					if(!allWords.contains(array[x]))allWords.add(array[x]);
+				}
+				//System.out.println(array[0]);
+				//if(count == 2)
+				//break;
+				
+			}
+			sCurrentLine = br.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} // ) != null) {
+
+		System.out.println(allWords.size());
+		///System.out.println(spamCount.get("go"));
+
+		// while(scanner.)
+
+	}
+
+}
