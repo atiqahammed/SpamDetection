@@ -15,7 +15,53 @@ public class Detector {
 
 	private ArrayList<String> allWords;
 	HashMap<String, Double> probability;// = new HashMap<>();
+	ArrayList<String> allSpam = new ArrayList<>();
+	ArrayList<String> allHam = new ArrayList<>();
 
+	
+	public void train2(String filePath) throws IOException{
+		File dataFile = new File(filePath);
+		FileReader fr = null;
+		BufferedReader br = null;
+
+		try {
+			br = new BufferedReader(new FileReader(dataFile));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		int i = 0;
+		String sCurrentLine = null;
+		while ((sCurrentLine = br.readLine()) != null) {
+			i++;
+			sCurrentLine = sCurrentLine.toLowerCase();
+			String newString = sCurrentLine.replaceAll("[^a-zA-Z0-9\\s\\s]", "");
+			String[] array = newString.split(" ");
+			String[] classes = array[0].split("\t");
+			try {
+				array[0] = classes[1];
+				if(classes[0].equals("ham")) allHam.add(newString);
+				else allSpam.add(newString);
+				
+			} catch (Exception e) {
+				continue;
+				// System.out.println(count+" "+classes);
+			}
+			
+			//if(classes[0].equals("ham")) System.out.println(i+" got a ham");
+			//else System.out.println(i + " got a spam");
+		}
+		
+		
+		
+		// System.out.println(allHam.size());
+		// System.out.println(allSpam.size());
+	}
+	
+	
+	
+	
+	
 	public void train(String filePath) {
 		File dataFile = new File(filePath);
 
@@ -152,7 +198,9 @@ public class Detector {
 		{
 			if(probability.containsKey(arr[i])) ans *= probability.get(arr[i]);
 		}
-		System.out.println(ans);
+		if(ans < 1.00) System.out.println("Spam");
+		else System.out.println("Hum");
+		//System.out.println(ans);
 		
 		//System.out.println(arr[arr.length -1]);
 		
