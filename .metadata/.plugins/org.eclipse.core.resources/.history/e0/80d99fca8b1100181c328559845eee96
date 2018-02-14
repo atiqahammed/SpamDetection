@@ -1,0 +1,24 @@
+package test;
+
+import java.io.File;
+
+public class SpamDetector {
+	private double[][] allData;						// stores all data
+	private int row;								// size of data
+	private int column;								// size of attributes
+	private File dataFile;							// file that content all data
+	
+	public SpamDetector(int row, int column, String filename) {
+		this.row = row;
+		this.column = column;
+		dataFile = new File(filename);
+	}
+
+	public void inputData() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
+}

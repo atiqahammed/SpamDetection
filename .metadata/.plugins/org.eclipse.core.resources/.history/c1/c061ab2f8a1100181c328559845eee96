@@ -1,0 +1,15 @@
+package test;
+
+import java.io.File;
+
+public class SpamDetector {
+	private double[][] allData;
+	private int row;
+	private int column;
+	private File dataFile;
+	
+	
+	
+	
+	
+}

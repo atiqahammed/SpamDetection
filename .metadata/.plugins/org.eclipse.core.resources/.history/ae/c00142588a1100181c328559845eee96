@@ -1,0 +1,17 @@
+package test;
+
+import java.io.File;
+
+public class SpamDetector {
+	private double[][] allData;						// stores all data
+	private int row;								// size of data
+	private int column;								// size of attributes
+	private File dataFile;							// file that content all data
+	
+	public SpamDetector() {
+	
+	}
+	
+	
+	
+}

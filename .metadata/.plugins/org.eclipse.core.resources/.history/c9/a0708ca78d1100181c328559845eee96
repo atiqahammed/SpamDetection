@@ -1,0 +1,59 @@
+package test;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class SpamDetector {
+	private double[][] allData;						// stores all data
+	private int row;								// size of data
+	private int column;								// size of attributes
+	private File dataFile;							// file that content all data
+	private FileReader fileReader;
+	private BufferedReader bufferedReader;
+	
+	
+	public SpamDetector(int row, int column, String filename) {
+		this.row = row;
+		this.column = column;
+		dataFile = new File(filename);
+	}
+
+	public void inputData() {
+		initializeDataStructure();
+		String s  = null;
+		int count = 1;
+		try {
+			while((s = bufferedReader.readLine()) != null)
+			{
+				System.out.println(count + " >> " +s);
+				count++;
+			}
+		} catch (IOException e) {
+			System.out.println("got error in reading data using bufferReader");
+			//e.printStackTrace();
+		}
+		
+		
+	}
+
+	private void initializeDataStructure() {
+		allData = new double [row][];
+		for(int i = 0; i < row; i++)
+			allData[i] = new double[column];	
+		
+		try {
+			fileReader = new FileReader(dataFile);
+		} catch (FileNotFoundException e) {
+			System.out.println("file not Found");
+			//e.printStackTrace();
+		}
+		bufferedReader = new BufferedReader(fileReader);
+		
+	}
+	
+	
+	
+}
