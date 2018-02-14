@@ -5,7 +5,7 @@ public class Main {
 		//System.out.println("Hello world");
 		SpamDetector detector = new SpamDetector(4601, 58, "spamData.txt");
 		detector.inputData();
-		
+		detector.test();
 		
 		
 		
