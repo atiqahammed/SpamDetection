@@ -76,11 +76,11 @@ public class SpamDetector {
 	}
 
 	private void result() {
-		accuracy = (TP + TN) / (TP + TN + FP + FN);
-		precision = TP / (TP + FP);
-		recall = TP / (TP + FN); 	 
-		F1score = (2 * precision * recall) / (precision + recall);
-		System.out.println();
+		accuracy = accuracy = (TP + TN) / (TP + TN + FP + FN);
+		precision = TP / (TP+FP);
+		recall = TP / (TP+FN); 	 
+		F1score = (2*precision*recall)  / (precision + recall);
+		
 		System.err.println("Total TRUE-POSITIVE   : "+ TP);
 		System.err.println("Total TRUE-NEGATIVE   : "+ TN);
 		System.err.println("Total FALSE-POSITIVE  : "+ FP);

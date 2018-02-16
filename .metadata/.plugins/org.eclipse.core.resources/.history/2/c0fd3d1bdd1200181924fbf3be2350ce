@@ -33,6 +33,11 @@ public class SpamDetector {
 	private ArrayList<Integer> allTestedSpam;
 	private Map<String, ArrayList<Data>> listMap;
 	
+	
+	
+	
+	
+
 	public SpamDetector(String filePath) {
 		dataFile = new File(filePath);
 	}
@@ -59,7 +64,8 @@ public class SpamDetector {
 		listMap = new HashMap<String, ArrayList<Data>>();
 		listMap.put("1", spamCollection);
 		listMap.put("0", hamCollection);
-			
+		
+		
 		try {
 			fileReader = new FileReader(dataFile);
 		} catch (FileNotFoundException e) {
@@ -67,7 +73,12 @@ public class SpamDetector {
 		}
 		bufferedReader = new BufferedReader(fileReader);
 	}
-
+/*
+	public double getAccuracy(){
+		
+		return accuracy;
+	}
+	*/
 	public void test() {
 		allTestedHam = new ArrayList<>();
 		allTestedSpam = new ArrayList<>();
@@ -76,11 +87,11 @@ public class SpamDetector {
 	}
 
 	private void result() {
-		accuracy = (TP + TN) / (TP + TN + FP + FN);
-		precision = TP / (TP + FP);
-		recall = TP / (TP + FN); 	 
-		F1score = (2 * precision * recall) / (precision + recall);
-		System.out.println();
+		accuracy = accuracy = (TP + TN) / (TP + TN + FP + FN);
+		precision = TP / (TP+FP);
+		recall = TP / (TP+FN); 	 
+		F1score = (2*precision*recall)  / (precision + recall);
+		
 		System.err.println("Total TRUE-POSITIVE   : "+ TP);
 		System.err.println("Total TRUE-NEGATIVE   : "+ TN);
 		System.err.println("Total FALSE-POSITIVE  : "+ FP);
@@ -100,12 +111,15 @@ public class SpamDetector {
 			selectRandomTrainData(allTestedHam, hamCollection);
 			selectRandomTrainData(allTestedSpam, spamCollection);
 			classify();
-		}	
+		}
+	
 	}
 
 	private void classify() {
+		
 		column = testingData.get(0).getColumnSize();
-		for(int i = 0; i < testingData.size(); i++) {
+		for(int i = 0; i < testingData.size(); i++)
+		{
 			Data temp = testingData.get(i);
 			String s = predect(temp);
 			if(temp.getValueInIndex(column - 1).equals("1") && s.equals("1")) TP++;
@@ -118,7 +132,8 @@ public class SpamDetector {
 	private String predect(Data data) {
 		double probabilityOfSpamGivenFeatures = 1.0;
 		double probabilityOfHamGivenFeatures = 1.0;
-		for(int j = 0; j < column; j++) {
+		for(int j = 0; j < column; j++)
+		{
 			int countOfValue[] = countAttributeValue(data.getValueInIndex(j), j);
 			probabilityOfHamGivenFeatures *= (double)countOfValue[0]/totalHam;
 			probabilityOfSpamGivenFeatures *= (double)countOfValue[1]/totalSpam;
@@ -156,4 +171,7 @@ public class SpamDetector {
 			else trainingData.add(dataList.get(i));
 		}		
 	}
+
+	
+
 }
