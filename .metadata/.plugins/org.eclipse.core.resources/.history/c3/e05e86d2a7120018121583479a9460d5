@@ -1,0 +1,79 @@
+package detector;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+public class SpamDetector {
+	private File dataFile;
+	private int row;
+	private int column;
+	private int testDataSize;
+	private int trainDataSize;
+	private FileReader fileReader;
+	private BufferedReader bufferedReader;
+	private Map<String, Data> classMaping;
+	private Map<String, ArrayList<Data>> listMap;
+	private ArrayList<SpamData> spamCollection;
+	private ArrayList<HamData> hamCollection;
+
+	public SpamDetector(String filePath, int row, int column) {
+		dataFile = new File(filePath);
+		this.row = row;
+		this.column = column;
+		testDataSize = row / 10;
+		trainDataSize = row - testDataSize;
+	}
+	
+	public void inputData() {
+		initializeDataStructure();
+		String s  = null;
+		int count = 0;
+		try {
+			while((s = bufferedReader.readLine()) != null) {
+				//allData[count] = s.split(",");
+				//System.out.println(count+1 + " >> "+allData[0].length);
+				//System.out.println(count + " >> " +s);
+				count++;
+			}
+			
+		} catch (IOException e) {
+			System.out.println("got error in reading data using bufferReader");
+			//e.printStackTrace();
+		}
+		
+		
+	}
+
+	private void initializeDataStructure() {
+		//allData = new String[row][];/*
+		//for(int i = 0; i < row; i++)
+		//	allData[i] = new double[column];*/	
+		classMaping = new HashMap<String, Data>();
+		classMaping.put("1", new SpamData());
+		classMaping.put("0", new HamData());
+		
+		listMap = new HashMap<String, ArrayList<Data>>();
+		listMap.put("", value)
+		
+		
+		try {
+			fileReader = new FileReader(dataFile);
+		} catch (FileNotFoundException e) {
+			System.out.println("file not Found");
+		}
+		bufferedReader = new BufferedReader(fileReader);
+		
+	}
+	
+
+	public void test() {
+
+	}
+
+}

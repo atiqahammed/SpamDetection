@@ -1,0 +1,9 @@
+package detector;
+
+public class SpamData extends Data {
+
+	public SpamData(String[] valueOfAttributes) {
+		super(valueOfAttributes);
+	}
+
+}

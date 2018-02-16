@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;spamData.txt&apos; to &apos;SpamDetection-Test003&apos;&#x0D;&#x0A;- Original project: &apos;SpamDetection-Test002&apos;&#x0D;&#x0A;- Destination element: &apos;SpamDetection-Test003&apos;&#x0D;&#x0A;- Original element: &apos;spamData.txt&apos;" description="Copy file" destination="=SpamDetection-Test003" element1="spamData.txt" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1518734966077" units="0" version="1.0"/>
+</session>

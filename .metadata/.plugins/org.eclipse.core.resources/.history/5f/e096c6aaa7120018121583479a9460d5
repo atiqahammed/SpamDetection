@@ -1,0 +1,17 @@
+package detector;
+
+public abstract class Data {
+	private String[] valueOfAttributes;
+	
+	public Data(String[] valueOfAttributes) {
+		this.valueOfAttributes = valueOfAttributes;
+	}
+	
+	public Data() {
+	}
+	
+	private String getValueInIndex(int index) {
+		return valueOfAttributes[index];
+	}
+	
+}

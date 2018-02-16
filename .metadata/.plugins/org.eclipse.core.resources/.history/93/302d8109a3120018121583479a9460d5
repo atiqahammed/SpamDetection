@@ -1,0 +1,20 @@
+package detector;
+
+import java.io.File;
+
+public class SpamDetector {
+	private File dataFile;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public SpamDetector(String filePath) {
+		dataFile = new File(filePath);
+	}
+
+}

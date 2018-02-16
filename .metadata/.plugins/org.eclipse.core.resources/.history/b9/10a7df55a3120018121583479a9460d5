@@ -1,0 +1,27 @@
+package detector;
+
+import java.io.File;
+
+public class SpamDetector {
+	private File dataFile;
+	private int row;							
+	private int column;
+	private int testDataSize;
+	private int trainDataSize;
+	
+	
+	
+	
+	
+	
+	
+	
+	public SpamDetector(String filePath, int row, int column) {
+		dataFile = new File(filePath);
+		this.row = row;
+		this.column = column;
+		testDataSize = row / 10;
+		trainDataSize  = row- testDataSize;
+	}
+
+}

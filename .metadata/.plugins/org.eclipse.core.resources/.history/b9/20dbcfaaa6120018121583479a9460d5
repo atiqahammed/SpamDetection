@@ -1,0 +1,9 @@
+package detector;
+
+public class HamData extends Data{
+
+	public HamData(String[] valueOfAttributes) {
+		super(valueOfAttributes);
+	}
+
+}
